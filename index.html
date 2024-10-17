@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio&Video&Animation&Image</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>HTML 5 API</h1>
+
+    <div class="tabs">
+      <button class="tab-button" onclick="openTab('audioVideo')">Аудио/Видео</button>
+      <button class="tab-button" onclick="openTab('imageProcessing')">Обработка Изображений</button>
+      <button class="tab-button" onclick="openTab('animation')">Анимация</button>
+    </div>
+
+    <div id="audioVideo" class="tab-content">
+      <h2>Аудио и Видео Плееры</h2>
+
+      <div>
+        <h3>Аудио Плеер</h3>
+        <input type="file" id="audioFileInput" accept="audio/*">
+        <audio id="audioPlayer" controls>
+          Ваш браузер не поддерживает аудио элементы.
+        </audio>
+        <button onclick="playAudio()">Воспроизвести</button>
+        <button onclick="pauseAudio()">Пауза</button>
+        <input type="range" min="0" max="1" step="0.1" onchange="setVolume(this.value)">
+      </div>
+
+      <div>
+        <h3>Видео Плеер</h3>
+        <input type="file" id="videoFileInput" accept="video/*">
+        <video id="videoPlayer" width="320" height="240" controls>
+          Ваш браузер не поддерживает видео элементы.
+        </video>
+        <button onclick="playVideo()">Воспроизвести</button>
+        <button onclick="pauseVideo()">Пауза</button>
+        <input type="range" min="0" max="1" step="0.1" onchange="setVideoVolume(this.value)">
+      </div>
+    </div>
+
+    <div id="imageProcessing" class="tab-content">
+      <h2>Обработка Изображений и Рисование</h2>
+      <input type="file" id="imageLoader" accept="image/*">
+      <canvas id="imageCanvas" width="500" height="400" style="border: 1px solid black;"></canvas>
+      
+      <div class="controls">
+        <label for="colorPicker">Цвет кисти:</label>
+        <input type="color" id="colorPicker" value="#000000">
+        
+        <label for="brushSize">Размер кисти:</label>
+        <input type="range" id="brushSize" min="1" max="20" value="5">
+        
+        <button onclick="clearCanvas()">Очистить</button>
+        <button onclick="saveImage()">Сохранить Изображение</button>
+      </div>
+    </div>
+  
+    <div id="animation" class="tab-content">
+      <h2>Анимация на Canvas</h2>
+      <canvas id="animationCanvas" width="500" height="400" style="border: 1px solid black;"></canvas>
+      
+      <div class="controls">
+        <label for="animationColor">Цвет объекта:</label>
+        <input type="color" id="animationColor" value="#0000FF">
+        
+        <label for="animationSpeed">Скорость анимации:</label>
+        <input type="range" id="animationSpeed" min="1" max="10" value="2">
+        
+        <button onclick="startAnimation()">Начать Анимацию</button>
+        <button onclick="stopAnimation()">Остановить Анимацию</button>
+      </div>
+    </div>
+
+<script src="av.js"></script>
+<script src="ga.js"></script>
+<script src="img.js"></script>
+</body>
+</html>
